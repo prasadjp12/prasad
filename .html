@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunny Yellow Background</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=GRAMA+ONE&display=swap">
+<style>
+  body {
+    background: linear-gradient(to bottom right, #FFFF00, #FFD700); /* Yellow gradient background */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    width: 21cm; /* Width of A4 paper */
+    height: 29.7cm; /* Height of A4 paper */
+    page-break-after: always;
+    position: relative; /* Set body to relative positioning */
+  }
+  .content {
+    padding: 20px;
+  }
+  h1 {
+    font-family: 'GRAMA ONE', sans-serif;
+    font-size: 50pt;
+    font-weight: bold;
+    color: #333; /* Dark Gray */
+    text-align: left; /* Align heading to the left */
+  }
+  p {
+    color: #666; /* Medium Gray */
+  }
+  label {
+    font-weight: bold;
+    text-transform: capitalize; /* Convert labels to uppercase */
+    display: block; /* Make labels block elements */
+    margin-bottom: 5px; /* Add some space below labels */
+    text-align: left; /* Align labels to the left */
+    font-size: 20px; /* Increased font size by 2 times */
+  }
+  input[type="text"],
+  textarea,
+  select {
+    width: calc(100% - 120px); /* Adjusted width to leave space for labels */
+    padding: 20px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #FFFF00; /* Sunny Yellow */
+    background: linear-gradient(to bottom right, #FFFF00, #FFD700); /* Yellow gradient background */
+    font-size: 20px; /* Increased font size by 2 times */
+  }
+  .print-button {
+    background-color: #008CBA; /* Blue */
+    border: none;
+    color: white;
+    padding: 30px 64px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px; /* Increased font size by 2 times */
+    margin: 20px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  .print-button.hidden {
+    display: none; /* Hide the print button */
+  }
+  
+  /* Top left corner */
+  .top-left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #333; /* Dark Gray */
+    font-weight: bold;
+    font-size: 20px; /* Increased font size by 2 times */
+    white-space: nowrap; /* Prevent wrapping */
+  }
+
+  .top-left label,
+  .top-left span {
+    display: inline-block; /* Display labels and spans in the same line */
+    margin-right: 10px; /* Add some space between labels and spans */
+  }
+
+  /* Top right corner */
+  .top-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    max-width: calc(50% - 40px); /* Maximum width of the logo */
+    text-align: right;
+  }
+
+  .top-right img {
+    max-width: 100%; /* Set the max-width of the logo to 100% */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 150px; /* Set maximum height of the logo */
+  }
+</style>
+</head>
+<body>
+
+<!-- Top left corner -->
+<div class="top-left">
+  <label for="current-time">Time:</label>
+  <span id="current-time">12:01:51 PM</span>
+  <label for="current-date">Date:</label>
+  <span id="current-date">2/27/2024</span>
+  
+</div>
+
+<!-- Top right corner logo -->
+<div class="top-right">
+  <img src="https://gramaone.karnataka.gov.in/images/Grama_one.png" alt="Logo">
+</div>
+
+<div class="content">
+  <h1>GRAMA ONE</h1>
+  
+  <div>
+    <label for="mobile_number">Grama one Operator Name and Mobile Number:</label>
+    <input type="text" id="mobile_number" name="mobile_number" pattern="[0-9]{10}" title="Please enter a 10-digit number." required>
+  </div>
+
+  <div>
+    <label for="address">Grama one Address:</label>
+    <input type="text" id="address" name="address">
+  </div>
+  
+  <div>
+    <label for="service_name">Name of the Service:</label>
+    <input type="text" id="service_name" name="service_name">
+  </div>
+  
+  <div>
+    <label for="eligible">Who Are Eligible To Get This Service:</label>
+    <textarea id="eligible" name="eligible" rows="2"></textarea>
+  </div>
+  
+  <div>
+    <label for="documents">Documents to be Enclosed with the Request:</label>
+    <textarea id="documents" name="documents" rows="4"></textarea>
+  </div>
+  
+  <div>
+    <label for="biometric">Biometric Required:</label>
+    <select id="biometric" name="biometric">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+  </div>
+  
+  <div>
+    <label for="aadhar_otp">Required Aadhar OTP:</label>
+    <select id="aadhar_otp" name="aadhar_otp">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+  </div>
+  
+</div>
+
+<button id="printButton" class="print-button" onclick="printPage()">Print</button>
+
+<script>
+function printPage() {
+  window.print();
+  document.getElementById("printButton").classList.add("hidden");
+}
+</script>
+
+</body>
+</html>
